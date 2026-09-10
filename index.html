@@ -1,0 +1,1513 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MAHESA RAFKA KANIGARA</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+            transition: 0.3s;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .navbar {
+            max-width: 1150px;
+            height: 70px;
+            margin: auto;
+            padding: 0 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #2563eb;
+        }
+
+        .theme-btn {
+            width: 42px;
+            height: 42px;
+            border: none;
+            border-radius: 50%;
+            background: #252525;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            max-width: 1150px;
+            margin: auto;
+            padding: 120px 25px 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hello {
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 7vw, 75px);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero-description {
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-3px);
+        }
+
+        .secondary {
+            color: #2563eb;
+            border: 1px solid #2563eb;
+        }
+
+        .secondary:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        .profile {
+            width: 330px;
+            height: 330px;
+            padding: 10px;
+            background: #2563eb;
+            border-radius: 50%;
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: white;
+        }
+
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        .section {
+            max-width: 1150px;
+            margin: auto;
+            padding: 100px 25px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title p {
+            color: #2563eb;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-size: 35px;
+            margin: 5px 0;
+        }
+
+        .section-title span {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .about h3 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .about p {
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+
+        .info {
+            display: grid;
+            gap: 15px;
+        }
+
+        .info-card {
+            padding: 20px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: #2563eb;
+        }
+
+        .info-card span {
+            font-size: 28px;
+        }
+
+        .info-card p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .gray-section {
+            max-width: 100%;
+            background: #f1f5f9;
+        }
+
+        .skills {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            font-size: 35px;
+        }
+
+        .skill-card p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 20px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+
+        .bar span {
+            display: block;
+            height: 100%;
+            background: #2563eb;
+            border-radius: 20px;
+        }
+
+        .percentage {
+            display: block;
+            text-align: right;
+            color: #64748b;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+
+        /* =========================
+           PROJECT
+        ========================= */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+        }
+
+        .project {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .project-image {
+            height: 180px;
+            background: #eff6ff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 60px;
+        }
+
+        .project-content {
+            padding: 22px;
+        }
+
+        .project-content p {
+            color: #64748b;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .tags span {
+            background: #eff6ff;
+            color: #2563eb;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           SERTIFIKAT
+        ========================= */
+
+        .certificates {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+        }
+
+        .certificate {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .certificate:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .certificate img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            cursor: pointer;
+            background: #e2e8f0;
+        }
+
+        .certificate-info {
+            padding: 18px;
+        }
+
+        .certificate-info h3 {
+            font-size: 17px;
+        }
+
+        .certificate-info p {
+            color: #64748b;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+
+            background: rgba(0,0,0,0.88);
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 30px;
+
+            color: white;
+            font-size: 45px;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 15px;
+        }
+
+        .contact-icon {
+            font-size: 35px;
+        }
+
+        .contact-card p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social a {
+            padding: 10px 18px;
+            background: #2563eb;
+            color: white;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           DARK MODE
+        ========================= */
+
+        body.dark {
+            background: #0f172a;
+            color: #f8fafc;
+        }
+
+        body.dark header {
+            background: rgba(15,23,42,0.92);
+            border-color: #334155;
+        }
+
+        body.dark .nav-menu a {
+            color: white;
+        }
+
+        body.dark .nav-menu a:hover {
+            color: #60a5fa;
+        }
+
+        body.dark .theme-btn {
+            background: #1e293b;
+        }
+
+        body.dark .hero-description,
+        body.dark .about p,
+        body.dark .section-title span,
+        body.dark .skill-card p,
+        body.dark .project-content p,
+        body.dark .certificate-info p,
+        body.dark .contact-card p {
+            color: #94a3b8;
+        }
+
+        body.dark .gray-section {
+            background: #111827;
+        }
+
+        body.dark .info-card,
+        body.dark .skill-card,
+        body.dark .project,
+        body.dark .certificate,
+        body.dark .contact-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        body.dark .bar {
+            background: #334155;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media(max-width:900px) {
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .skills,
+            .projects,
+            .certificates {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .contact {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media(max-width:600px) {
+
+            .nav-menu {
+                display: none;
+            }
+
+            .profile {
+                width: 230px;
+                height: 230px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .skills,
+            .projects,
+            .certificates {
+                grid-template-columns: 1fr;
+            }
+
+            .certificate img {
+                height: auto;
+            }
+
+            .section {
+                padding: 75px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                Mahesa
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#skills">Skill</a></li>
+                <li><a href="#projects">Proyek</a></li>
+                <li><a href="#certificates">Sertifikat</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+
+            <button class="theme-btn" id="themeBtn">
+                🌙
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= HOME ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <p class="hello">
+                Halo 👋
+            </p>
+
+            <h1>
+                <span>Mahesa Rafka Kanigara</span><br>
+                Fortopolio
+            </h1>
+
+            <p class="hero-description">
+                Saya adalah pelajar SMK Plus Pelita Nusantara
+                yang tertarik dengan dunia pemrograman,
+                website, dan teknologi.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projects" class="btn primary">
+                    Lihat Proyek
+                </a>
+
+                <a href="#contact" class="btn secondary">
+                    Hubungi Saya
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile">
+
+            <!-- GANTI FOTO PROFIL DI SINI -->
+            <img src="mahesaganteng.jpeg"
+                 alt="">
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= TENTANG ================= -->
+
+    <section class="section" id="about">
+
+        <div class="section-title">
+
+            <p>INFORMASI MAHESA</p>
+
+            <h2></h2>
+
+        </div>
+
+
+        <div class="about">
+
+            <div>
+
+                <h3>  Mahesa Rafka Kanigara </h3>
+
+                <p>
+                    Aku adalah seorang remaja yang tertarik pada dunia komputer,aku ingin lebih mengenal apa itu komputer dan terus belajar sampai bisa
+                </p>
+
+                <p>
+                    Aku sedang belajar ngoding,menguasai word,exel,dan power point
+                </p>
+
+                <p>
+                    Aku senang bisa belajar kom puter ternyata belajar komputer itu hal yang menyenangkan dan menambah semangat saat belajar
+                </p>
+
+            </div>
+
+
+            <div class="info">
+
+                <div class="info-card">
+
+                    <span>🎓</span>
+
+                    <h3>Pelajar</h3>
+
+                    <p>
+                        SMK - Plus Pelita Nusantara
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <span>💻</span>
+
+                    <h3>kemampuan</h3>
+
+                    <p>
+                        ngoding
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <span>🚀</span>
+
+                    <h3>Cita-cita</h3>
+
+                    <p>
+                        Menjadi Miliyarder 
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SKILL ================= -->
+
+    <section class="gray-section">
+
+        <div class="section" id="skills">
+
+            <div class="section-title">
+
+                <p>KEMAMPUAN</p>
+
+                <h2>Skills Saya</h2>
+
+            </div>
+
+
+            <div class="skills">
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">🌐</div>
+
+                    <h3>HTML</h3>
+
+                    <p>Membuat struktur halaman website.</p>
+
+                    <div class="bar">
+                        <span style="width:90%"></span>
+                    </div>
+
+                    <small class="percentage">
+                        90%
+                    </small>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">🎨</div>
+
+                    <h3>CSS</h3>
+
+                    <p>Membuat tampilan website.</p>
+
+                    <div class="bar">
+                        <span style="width:85%"></span>
+                    </div>
+
+                    <small class="percentage">
+                        85%
+                    </small>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">⚡</div>
+
+                    <h3>JavaScript</h3>
+
+                    <p>Membuat website interaktif.</p>
+
+                    <div class="bar">
+                        <span style="width:75%"></span>
+                    </div>
+
+                    <small class="percentage">
+                        75%
+                    </small>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">🐘</div>
+
+                    <h3>PHP</h3>
+
+                    <p>Membuat website dinamis.</p>
+
+                    <div class="bar">
+                        <span style="width:70%"></span>
+                    </div>
+
+                    <small class="percentage">
+                        70%
+                    </small>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">🗄️</div>
+
+                    <h3>MySQL</h3>
+
+                    <p>Mengelola database website.</p>
+
+                    <div class="bar">
+                        <span style="width:70%"></span>
+                    </div>
+
+                    <small class="percentage">
+                        70%
+                    </small>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">🔧</div>
+
+                    <h3>Git</h3>
+
+                    <p>Mengelola versi project.</p>
+
+                    <div class="bar">
+                        <span style="width:65%"></span>
+                    </div>
+
+                    <small class="percentage">
+                        65%
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+```html
+<!-- ================= PROYEK ================= -->
+
+<section class="section" id="projects">
+
+    <div class="section-title">
+
+        <p>PORTFOLIO</p>
+
+        <h2>Proyek Saya</h2>
+
+    </div>
+
+    <div class="projects">
+
+        <!-- PROYEK 1 -->
+        <div class="project">
+
+            <a href="jam/index.html" class="project-link">
+
+                <div class="project-image">
+                    💻
+                </div>
+
+                <div class="project-content">
+
+                    <h3>Website Jam Digital</h3>
+
+                    <p>
+                        Website jam digital yang menampilkan
+                        waktu secara real-time.
+                    </p>
+
+                    <div class="tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <!-- PROYEK 2 -->
+        <div class="project">
+
+            <a href="produk/index.html" class="project-link">
+
+                <div class="project-image">
+                    🛒
+                </div>
+
+                <div class="project-content">
+
+                    <h3>Katalog Produk</h3>
+
+                    <p>
+                        Website katalog produk sederhana
+                        dengan tampilan modern.
+                    </p>
+
+                    <div class="tags">
+                        <span>PHP</span>
+                        <span>MySQL</span>
+                    </div>
+
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <!-- PROYEK 3 -->
+        <div class="project">
+
+            <a href="kalkulator/index.html" class="project-link">
+
+                <div class="project-image">
+                    🧮
+                </div>
+
+                <div class="project-content">
+
+                    <h3>Kalkulator</h3>
+
+                    <p>
+                        Aplikasi kalkulator sederhana
+                        menggunakan JavaScript.
+                    </p>
+
+                    <div class="tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+```
+
+    <!-- ================= SERTIFIKAT ================= -->
+
+    <section class="gray-section">
+
+        <div class="section" id="certificates">
+
+            <div class="section-title">
+
+                <p>PENCAPAIAN</p>
+
+                <h2>10 Sertifikat Saya</h2>
+
+                <span>
+                    Klik gambar sertifikat untuk melihat lebih besar.
+                </span>
+
+            </div>
+
+
+            <div class="certificates">
+
+
+                <!-- SERTIFIKAT 1 -->
+
+                <div class="certificate">
+
+                    <img
+                        src="sertifikat1.jpeg"
+                        alt="Sertifikat 1"
+                        onclick="openCertificate(this.src)"
+                    >
+
+                    <div class="certificate-info">
+
+                        <h3>Sertifikat 1</h3>
+
+                        <p>
+                            Nama pelatihan / kegiatan
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SERTIFIKAT 2 -->
+
+                <div class="certificate">
+
+                    <img
+                        src="sertifikat2.jpeg"
+                        alt="Sertifikat 2"
+                        onclick="openCertificate(this.src)"
+                    >
+
+                    <div class="certificate-info">
+
+                        <h3>Sertifikat 2</h3>
+
+                        <p>
+                            Nama pelatihan / kegiatan
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SERTIFIKAT 3 -->
+
+                <div class="certificate">
+
+                    <img
+                        src="sertifikat3.jpeg"
+                        alt="Sertifikat 3"
+                        onclick="openCertificate(this.src)"
+                    >
+
+                    <div class="certificate-info">
+
+                        <h3>Sertifikat 3</h3>
+
+                        <p>
+                            Nama pelatihan / kegiatan
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SERTIFIKAT 4 -->
+
+                <div class="certificate">
+
+                    <img
+                        src="sertifikat4.jpeg"
+                        alt="Sertifikat 4"
+                        onclick="openCertificate(this.src)"
+                    >
+
+                    <div class="certificate-info">
+
+                        <h3>Sertifikat 4</h3>
+
+                        <p>
+                            Nama pelatihan / kegiatan
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SERTIFIKAT 5 -->
+
+                <div class="certificate">
+
+                    <img
+                        src="sertifikat5.jpeg"
+                        alt="Sertifikat 5"
+                        onclick="openCertificate(this.src)"
+                    >
+
+                    <div class="certificate-info">
+
+                        <h3>Sertifikat 5</h3>
+
+                        <p>
+                            Nama pelatihan / kegiatan
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SERTIFIKAT 6 -->
+
+                <div class="certificate">
+
+                    <img
+                        src="sertifikat6.jpeg"
+                        alt="Sertifikat 6"
+                        onclick="openCertificate(this.src)"
+                    >
+
+                    <div class="certificate-info">
+
+                        <h3>Sertifikat 6</h3>
+
+                        <p>
+                            Nama pelatihan / kegiatan
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SERTIFIKAT 7 -->
+
+                <div class="certificate">
+
+                    <img
+                        src="sertifikat7.jpeg"
+                        alt="Sertifikat 7"
+                        onclick="openCertificate(this.src)"
+                    >
+
+                    <div class="certificate-info">
+
+                        <h3>Sertifikat 7</h3>
+
+                        <p>
+                            Nama pelatihan / kegiatan
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SERTIFIKAT 8 -->
+
+                <div class="certificate">
+
+                    <img
+                        src="https://via.placeholder.com/800x500.png?text=Sertifikat+8"
+                        alt="Sertifikat 8"
+                        onclick="openCertificate(this.src)"
+                    >
+
+                    <div class="certificate-info">
+
+                        <h3>Sertifikat 8</h3>
+
+                        <p>
+                            Nama pelatihan / kegiatan
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SERTIFIKAT 9 -->
+
+                <div class="certificate">
+
+                    <img
+                        src="https://via.placeholder.com/800x500.png?text=Sertifikat+9"
+                        alt="Sertifikat 9"
+                        onclick="openCertificate(this.src)"
+                    >
+
+                    <div class="certificate-info">
+
+                        <h3>Sertifikat 9</h3>
+
+                        <p>
+                            Nama pelatihan / kegiatan
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SERTIFIKAT 10 -->
+
+                <div class="certificate">
+
+                    <img
+                        src="https://via.placeholder.com/800x500.png?text=Sertifikat+10"
+                        alt="Sertifikat 10"
+                        onclick="openCertificate(this.src)"
+                    >
+
+                    <div class="certificate-info">
+
+                        <h3>Sertifikat 10</h3>
+
+                        <p>
+                            Nama pelatihan / kegiatan
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MODAL ================= -->
+
+    <div class="modal" id="modal">
+
+        <span class="close" onclick="closeCertificate()">
+            &times;
+        </span>
+
+        <img id="modalImage" src="" alt="Preview Sertifikat">
+
+    </div>
+
+
+    <!-- ================= KONTAK ================= -->
+
+    <section class="section" id="contact">
+
+        <div class="section-title">
+
+            <p>KONTAK</p>
+
+            <h2>Hubungi Saya</h2>
+
+        </div>
+
+
+        <div class="contact">
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📧
+                </div>
+
+                <h3>Email</h3>
+
+                <p>
+                    mahesa090110@gmail.com
+                </p>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📱
+                </div>
+
+                <h3>WhatsApp</h3>
+
+                <p>
+                    085775421082
+                </p>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📍
+                </div>
+
+                <h3>Tempat Tinggal</h3>
+
+                <p>
+                    Citeureup,Desa Sanja RT01 RW05
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="social">
+
+            <a href="#">
+                Instagram
+            </a>
+
+            <a href="#">
+                GitHub
+            </a>
+
+            <a href="#">
+                LinkedIn
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Mahesa | Portfolio Pribadi
+        </p>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        // DARK MODE
+
+        const themeBtn = document.getElementById("themeBtn");
+
+        themeBtn.addEventListener("click", function() {
+
+            document.body.classList.toggle("dark");
+
+            if (document.body.classList.contains("dark")) {
+
+                themeBtn.textContent = "☀️";
+
+            } else {
+
+                themeBtn.textContent = "🌙";
+
+            }
+
+        });
+
+
+        // MODAL SERTIFIKAT
+
+        const modal =
+            document.getElementById("modal");
+
+        const modalImage =
+            document.getElementById("modalImage");
+
+
+        function openCertificate(src) {
+
+            modal.classList.add("active");
+
+            modalImage.src = src;
+
+        }
+
+
+        function closeCertificate() {
+
+            modal.classList.remove("active");
+
+        }
+
+
+        // Tutup dengan klik area luar
+
+        modal.addEventListener("click", function(event) {
+
+            if (event.target === modal) {
+
+                closeCertificate();
+
+            }
+
+        });
+
+
+        // Tutup dengan tombol ESC
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+
+                closeCertificate();
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
+```
