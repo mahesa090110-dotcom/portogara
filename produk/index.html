@@ -1,0 +1,389 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Produk</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #2563eb;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav h2 {
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 70px 20px;
+            background: linear-gradient(135deg, #2563eb, #60a5fa);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        /* CONTAINER */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+
+        .judul {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .judul h2 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .judul p {
+            color: #666;
+        }
+
+        /* PRODUK */
+        .produk-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .produk {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .produk:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .produk img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .produk-info {
+            padding: 20px;
+        }
+
+        .produk-info h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .produk-info p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .harga {
+            color: #2563eb;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            padding: 11px;
+            border-radius: 8px;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* TENTANG */
+        .tentang {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            margin-top: 60px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            text-align: center;
+        }
+
+        .tentang h2 {
+            margin-bottom: 15px;
+        }
+
+        .tentang p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 60px;
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1000px) {
+            .produk-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .produk-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <h2>🛍️ KatalogKu</h2>
+
+        <div>
+            <a href="#home">Home</a>
+            <a href="#produk">Produk</a>
+            <a href="#tentang">Tentang</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <h1>Katalog Produk</h1>
+        <p>Temukan berbagai produk terbaik dengan harga terjangkau.</p>
+    </section>
+
+    <!-- PRODUK -->
+    <section class="container" id="produk">
+
+        <div class="judul">
+            <h2>Produk Kami</h2>
+            <p>Pilihan produk yang tersedia</p>
+        </div>
+
+        <div class="produk-container">
+
+            <!-- PRODUK 1 -->
+            <div class="produk">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80"
+                     alt="Jam Tangan">
+
+                <div class="produk-info">
+                    <h3>Jam Tangan</h3>
+                    <p>Jam tangan keren dengan desain modern dan cocok digunakan sehari-hari.</p>
+                    <div class="harga">Rp150.000</div>
+                    <button class="btn" onclick="beli('Jam Tangan')">
+                        Beli Sekarang
+                    </button>
+                </div>
+            </div>
+
+            <!-- PRODUK 2 -->
+            <div class="produk">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80"
+                     alt="Sepatu">
+
+                <div class="produk-info">
+                    <h3>Sepatu Sneakers</h3>
+                    <p>Sepatu sneakers nyaman untuk sekolah, jalan-jalan, dan aktivitas sehari-hari.</p>
+                    <div class="harga">Rp250.000</div>
+                    <button class="btn" onclick="beli('Sepatu Sneakers')">
+                        Beli Sekarang
+                    </button>
+                </div>
+            </div>
+
+            <!-- PRODUK 3 -->
+            <div class="produk">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
+                     alt="Kaos">
+
+                <div class="produk-info">
+                    <h3>Kaos Polos</h3>
+                    <p>Kaos berbahan nyaman dengan desain sederhana dan cocok untuk berbagai aktivitas.</p>
+                    <div class="harga">Rp75.000</div>
+                    <button class="btn" onclick="beli('Kaos Polos')">
+                        Beli Sekarang
+                    </button>
+                </div>
+            </div>
+
+            <!-- PRODUK 4 -->
+            <div class="produk">
+                <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=800&q=80"
+                     alt="Headphone">
+
+                <div class="produk-info">
+                    <h3>Headphone</h3>
+                    <p>Headphone dengan suara jernih dan nyaman digunakan untuk mendengarkan musik.</p>
+                    <div class="harga">Rp180.000</div>
+                    <button class="btn" onclick="beli('Headphone')">
+                        Beli Sekarang
+                    </button>
+                </div>
+            </div>
+
+            <!-- PRODUK 5 -->
+            <div class="produk">
+                <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80"
+                     alt="Kacamata">
+
+                <div class="produk-info">
+                    <h3>Kacamata</h3>
+                    <p>Kacamata dengan desain stylish untuk melengkapi penampilan sehari-hari.</p>
+                    <div class="harga">Rp100.000</div>
+                    <button class="btn" onclick="beli('Kacamata')">
+                        Beli Sekarang
+                    </button>
+                </div>
+            </div>
+
+            <!-- PRODUK 6 -->
+            <div class="produk">
+                <img src="https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&fit=crop&w=800&q=80"
+                     alt="Tas">
+
+                <div class="produk-info">
+                    <h3>Tas Ransel</h3>
+                    <p>Tas ransel kuat dan nyaman untuk sekolah maupun bepergian.</p>
+                    <div class="harga">Rp200.000</div>
+                    <button class="btn" onclick="beli('Tas Ransel')">
+                        Beli Sekarang
+                    </button>
+                </div>
+            </div>
+
+            <!-- PRODUK 7 -->
+            <div class="produk">
+                <img src="https://images.unsplash.com/photo-1585386959984-a41552231693?auto=format&fit=crop&w=800&q=80"
+                     alt="Parfum">
+
+                <div class="produk-info">
+                    <h3>Parfum</h3>
+                    <p>Parfum dengan aroma segar yang cocok digunakan dalam berbagai kesempatan.</p>
+                    <div class="harga">Rp120.000</div>
+                    <button class="btn" onclick="beli('Parfum')">
+                        Beli Sekarang
+                    </button>
+                </div>
+            </div>
+
+            <!-- PRODUK 8 -->
+            <div class="produk">
+                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=80"
+                     alt="Produk">
+
+                <div class="produk-info">
+                    <h3>Produk Perawatan</h3>
+                    <p>Produk perawatan dengan kemasan praktis dan mudah digunakan.</p>
+                    <div class="harga">Rp90.000</div>
+                    <button class="btn" onclick="beli('Produk Perawatan')">
+                        Beli Sekarang
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TENTANG -->
+    <section class="container" id="tentang">
+        <div class="tentang">
+            <h2>Tentang KatalogKu</h2>
+
+            <p>
+                KatalogKu adalah website katalog produk sederhana
+                yang dibuat untuk menampilkan berbagai macam produk
+                secara rapi, modern, dan mudah digunakan.
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 KatalogKu | Dibuat untuk tugas sekolah</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function beli(namaProduk) {
+            alert(
+                "Produk " + namaProduk +
+                " dipilih! Terima kasih sudah berbelanja."
+            );
+        }
+    </script>
+
+</body>
+</html>
+```
