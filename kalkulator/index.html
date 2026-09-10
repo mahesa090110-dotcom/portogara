@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Mahesa</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .calculator {
+            width: 350px;
+            padding: 20px;
+            background: #1e1e2f;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .title {
+            text-align: center;
+            color: white;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .display {
+            width: 100%;
+            height: 90px;
+            background: #11111c;
+            border: none;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            color: white;
+            text-align: right;
+            font-size: 36px;
+            outline: none;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        button {
+            height: 65px;
+            border: none;
+            border-radius: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+            background: #2d2d44;
+            color: white;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background: #3b3b57;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .operator {
+            background: #667eea;
+        }
+
+        .operator:hover {
+            background: #7b8df0;
+        }
+
+        .clear {
+            background: #e74c3c;
+        }
+
+        .clear:hover {
+            background: #ff5b4d;
+        }
+
+        .equal {
+            background: #2ecc71;
+            grid-row: span 2;
+            height: 142px;
+        }
+
+        .equal:hover {
+            background: #40df80;
+        }
+
+        .zero {
+            grid-column: span 2;
+        }
+
+        .footer {
+            text-align: center;
+            color: #aaa;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calculator">
+
+        <div class="title">
+            🧮 Kalkulator Mahesa
+        </div>
+
+        <input 
+            type="text" 
+            id="display" 
+            class="display" 
+            value="0" 
+            readonly
+        >
+
+        <div class="buttons">
+
+            <button class="clear" onclick="clearDisplay()">AC</button>
+            <button onclick="deleteNumber()">⌫</button>
+            <button onclick="percentage()">%</button>
+            <button class="operator" onclick="chooseOperator('/')">÷</button>
+
+            <button onclick="number('7')">7</button>
+            <button onclick="number('8')">8</button>
+            <button onclick="number('9')">9</button>
+            <button class="operator" onclick="chooseOperator('*')">×</button>
+
+            <button onclick="number('4')">4</button>
+            <button onclick="number('5')">5</button>
+            <button onclick="number('6')">6</button>
+            <button class="operator" onclick="chooseOperator('-')">−</button>
+
+            <button onclick="number('1')">1</button>
+            <button onclick="number('2')">2</button>
+            <button onclick="number('3')">3</button>
+            <button class="operator" onclick="chooseOperator('+')">+</button>
+
+            <button class="zero" onclick="number('0')">0</button>
+            <button onclick="number('.')">.</button>
+            <button class="equal" onclick="calculate()">=</button>
+
+        </div>
+
+        <div class="footer">
+            © 2026 Mahesa Rafka Kanigara
+        </div>
+
+    </div>
+
+    <script>
+
+        let display = document.getElementById("display");
+
+        let firstNumber = "";
+        let operator = "";
+        let waitingForSecondNumber = false;
+
+
+        // Memasukkan angka
+        function number(num) {
+
+            if (waitingForSecondNumber) {
+                display.value = num;
+                waitingForSecondNumber = false;
+            } 
+            else {
+
+                if (display.value === "0") {
+                    display.value = num;
+                } 
+                else {
+                    display.value += num;
+                }
+            }
+        }
+
+
+        // Memilih operator
+        function chooseOperator(op) {
+
+            firstNumber = parseFloat(display.value);
+            operator = op;
+            waitingForSecondNumber = true;
+        }
+
+
+        // Menghitung
+        function calculate() {
+
+            let secondNumber = parseFloat(display.value);
+            let result;
+
+            if (operator === "+") {
+                result = firstNumber + secondNumber;
+            }
+
+            else if (operator === "-") {
+                result = firstNumber - secondNumber;
+            }
+
+            else if (operator === "*") {
+                result = firstNumber * secondNumber;
+            }
+
+            else if (operator === "/") {
+
+                if (secondNumber === 0) {
+                    display.value = "Error";
+                    return;
+                }
+
+                result = firstNumber / secondNumber;
+            }
+
+            else {
+                return;
+            }
+
+            display.value = result;
+
+            operator = "";
+            firstNumber = "";
+            waitingForSecondNumber = true;
+        }
+
+
+        // Menghapus semua
+        function clearDisplay() {
+
+            display.value = "0";
+            firstNumber = "";
+            operator = "";
+            waitingForSecondNumber = false;
+        }
+
+
+        // Menghapus satu angka
+        function deleteNumber() {
+
+            if (display.value.length > 1) {
+                display.value = display.value.slice(0, -1);
+            } 
+            else {
+                display.value = "0";
+            }
+        }
+
+
+        // Persen
+        function percentage() {
+
+            display.value = parseFloat(display.value) / 100;
+        }
+
+
+        // Keyboard
+        document.addEventListener("keydown", function(event) {
+
+            if (!isNaN(event.key) || event.key === ".") {
+                number(event.key);
+            }
+
+            if (
+                event.key === "+" ||
+                event.key === "-" ||
+                event.key === "*" ||
+                event.key === "/"
+            ) {
+                chooseOperator(event.key);
+            }
+
+            if (event.key === "Enter" || event.key === "=") {
+                calculate();
+            }
+
+            if (event.key === "Escape") {
+                clearDisplay();
+            }
+
+            if (event.key === "Backspace") {
+                deleteNumber();
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
