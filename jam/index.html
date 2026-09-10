@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aplikasi Jam Digital - mahesa rafka kanigara | 10 RPL 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: radial-gradient(circle at center, #0f172a, #000814);
+    --text: #fff;
+    --accent: #60a5fa;
+    --secondary: rgba(255,255,255,0.7);
+  }
+  * {margin:0;padding:0;box-sizing:border-box;}
+  body {
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: var(--bg);
+    font-family:'Poppins',sans-serif;
+    color:var(--text);
+    transition:background 0.4s ease, color 0.4s ease;
+  }
+  .container {
+    text-align:center;
+    padding:40px 50px;
+    background:rgba(255,255,255,0.06);
+    border-radius:25px;
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 40px rgba(0,0,0,0.6),inset 0 0 20px rgba(255,255,255,0.05);
+    width:min(90%,600px);
+    transition:background 0.4s ease;
+  }
+  h1 {
+    font-size:26px;
+    font-weight:800;
+    color:var(--accent);
+    text-shadow:0 0 20px rgba(96,165,250,0.6);
+  }
+  .identitas {
+    font-size:14px;
+    color:var(--secondary);
+    margin-top:6px;
+    margin-bottom:30px;
+  }
+  #tanggal {
+    font-size:15px;
+    color:#a5b4fc;
+    margin-bottom:25px;
+  }
+  .jam {
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+  }
+  .kotak {
+    background:rgba(255,255,255,0.08);
+    padding:20px 25px;
+    border-radius:15px;
+    min-width:95px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.4);
+    border:1px solid rgba(255,255,255,0.05);
+    transition:transform 0.2s;
+  }
+  .kotak:hover {transform:translateY(-5px);}
+  .angka {
+    font-size:50px;
+    font-weight:800;
+    color:var(--accent);
+    text-shadow:0 0 10px var(--accent),0 0 20px var(--accent);
+  }
+  .label {
+    font-size:12px;
+    letter-spacing:2px;
+    color:var(--secondary);
+    margin-top:6px;
+  }
+  #greeting {
+    margin-top:25px;
+    font-size:20px;
+    font-weight:600;
+    color:#93c5fd;
+    text-shadow:0 0 10px rgba(147,197,253,0.5);
+  }
+  .themes {
+    margin-top:25px;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+  }
+  button {
+    border:none;
+    padding:8px 14px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+    color:white;
+    background:rgba(255,255,255,0.08);
+    transition:all 0.3s;
+  }
+  button:hover {transform:translateY(-3px);}
+  footer {
+    margin-top:25px;
+    font-size:13px;
+    color:rgba(255,255,255,0.5);
+  }
+  @media(max-width:600px){
+    .kotak{min-width:100px;padding:15px;}
+    .angka{font-size:40px;}
+  }
+</style>
+</head>
+<body>
+  <div class="container" id="main">
+    <h1>Aplikasi Jam Digital</h1>
+    <div class="identitas">Nama: <strong>mahesa rafka kanigara</strong> | Kelas: <strong>10 RPL 1</strong><br>Sekolah: <strong>SMK Plus Pelita Nusantara</strong></div>
+
+    <div id="tanggal">Memuat tanggal...</div>
+
+    <div class="jam">
+      <div class="kotak">
+        <div class="angka" id="jam">00</div>
+        <div class="label">JAM</div>
+      </div>
+      <div class="kotak">
+        <div class="angka" id="menit">00</div>
+        <div class="label">MENIT</div>
+      </div>
+      <div class="kotak">
+        <div class="angka" id="detik">00</div>
+        <div class="label">DETIK</div>
+      </div>
+    </div>
+
+    <div id="greeting">Selamat datang</div>
+
+    <div class="themes">
+      <button onclick="setTheme('gelap')">🌙 Gelap</button>
+      <button onclick="setTheme('terang')">☀️ Terang</button>
+      <button onclick="setTheme('neon')">⚡ Neon</button>
+    </div>
+
+    <footer>Zona Waktu Indonesia Barat (WIB / UTC+7)</footer>
+  </div>
+
+<script>
+function getWIBTime(){
+  const now=new Date();
+  const utc=now.getTime()+(now.getTimezoneOffset()*60000);
+  return new Date(utc+(7*3600000)); // +7 jam WIB
+}
+function updateClock(){
+  const wib=getWIBTime();
+  const jam=wib.getHours().toString().padStart(2,'0');
+  const menit=wib.getMinutes().toString().padStart(2,'0');
+  const detik=wib.getSeconds().toString().padStart(2,'0');
+  document.getElementById('jam').textContent=jam;
+  document.getElementById('menit').textContent=menit;
+  document.getElementById('detik').textContent=detik;
+
+  const opts={weekday:'long',year:'numeric',month:'long',day:'numeric'};
+  document.getElementById('tanggal').textContent=wib.toLocaleDateString('id-ID',opts);
+
+  let greet="Selamat malam";
+  const h=wib.getHours();
+  if(h>=4&&h<10)greet="Selamat pagi";
+  else if(h>=10&&h<15)greet="Selamat siang";
+  else if(h>=15&&h<18)greet="Selamat sore";
+  document.getElementById('greeting').textContent=greet;
+}
+setInterval(updateClock,1000);
+updateClock();
+
+/* Tema interaktif */
+function setTheme(mode){
+  const root=document.documentElement;
+  if(mode==='gelap'){
+    root.style.setProperty('--bg','radial-gradient(circle at center, #0f172a, #000814)');
+    root.style.setProperty('--accent','#60a5fa');
+    root.style.setProperty('--text','#fff');
+  }
+  if(mode==='terang'){
+    root.style.setProperty('--bg','linear-gradient(135deg,#e0f2fe,#f8fafc)');
+    root.style.setProperty('--accent','#1e3a8a');
+    root.style.setProperty('--text','#0f172a');
+  }
+  if(mode==='neon'){
+    root.style.setProperty('--bg','linear-gradient(135deg,#0f0c29,#302b63,#24243e)');
+    root.style.setProperty('--accent','#06b6d4');
+    root.style.setProperty('--text','#e0f2fe');
+  }
+}
+</script>
+</body>
+</html>
